@@ -38,8 +38,17 @@ conda activate gsg
 pip install -r requirements.txt
 ```
 ## Quick Start
+Before using, you need to do:
 ```sh
-python GSG_cluster.py --device 0 --cluster_label layer_guess_reordered_short
+cd ./data/10X
+cat 151673.zip* > 151673.zip
+unzip -d ./ 151673.zip
+```
+And then, you can start using code following:
+    
+```sh
+python GSG_cluster.py --device 0 --cluster_label layer_guess_reordered_short --feature_dim_method "PCA"
+# feature_dim_method default is "PCA", and another is "HVG"
 ```
 
 
