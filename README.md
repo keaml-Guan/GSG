@@ -1,7 +1,7 @@
 # GSG: A generative self-supervised graph learning framework for spatial transcriptomics
-![GitHub Repo stars](https://img.shields.io/github/stars/keaml-Guan/GSG?style=social) ![GitHub forks](https://img.shields.io/github/forks/keaml-Guan/GSG?style=social) ![GitHub watchers](https://img.shields.io/github/watchers/keaml-Guan/GSG?style=social)
+![GitHub Repo stars](https://img.shields.io/github/stars/keaml-Guan/GSG?style=social)  ![GitHub watchers](https://img.shields.io/github/watchers/keaml-Guan/GSG?style=social)
 #
-![](https://github.com/keaml-Guan/GSG/tree/main/figurees/GSG.jpg)
+![](https://github.com/keaml-Guan/GSG/blob/main/figures/GSG.jpg)
 <br>
 ## Overview
 
