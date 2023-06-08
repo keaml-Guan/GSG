@@ -43,6 +43,7 @@ Before using, you need to do:
 cd ./data/10X
 cat 151673.zip* > 151673.zip
 unzip -d ./ 151673.zip
+cd ../..
 ```
 And then, you can start using code following:
     
