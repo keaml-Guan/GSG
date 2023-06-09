@@ -56,3 +56,5 @@ python GSG_cluster.py --device 0 --cluster_label layer_guess_reordered_short --f
 <!--
 ## Citation
 -->
+
+![](https://github.com/keaml-Guan/GSG/blob/main/figures/result.jpg)
