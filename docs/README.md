@@ -10,5 +10,5 @@ GSG, a **generative self-supervised graph learning** framework, is introduced to
 
 This documentation is organized as followed:
 
-- [Domain identification](https://)
+- [Domain identification]([https://](https://github.com/keaml-Guan/GSG/tree/main/docs/GSG%20Domain%20Identify))
 
