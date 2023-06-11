@@ -40,7 +40,7 @@ conda activate gsg
 pip install -r requirements.txt
 ```
 ## Quick Start
-Before using, you need to do:
+Before using, you need to unzip the data:
 ```sh
 cd ./data/10X
 cat 151673.zip* > 151673.zip
