@@ -25,7 +25,7 @@ You'll need to install the following packages in order to run the codes.
 
 ## Installation
 
-See our model document details from ![Docs](https://keaml-guan.github.io/GSG/).
+See our model document details from [Docs](https://keaml-guan.github.io/GSG/).
 
 ### From source
 Start by grabbing this source codes:
