@@ -79,13 +79,13 @@ def GSG_Spatial_Pic(adata,args,result_file):
         adata.obs[args.cluster_label] = adata.obs[args.cluster_label].cat.add_categories(['None'])
         adata.obs[args.cluster_label] = adata.obs[args.cluster_label].fillna("None")
         drawPicture(adata.obs,col_name ="imagecol",row_name = "imagerow",colorattribute=args.cluster_label,save_file = result_file + "/Ground_true.pdf",is_show=False,is_save= True)
-        drawPicture(adata.obs,col_name ="imagecol",row_name = "imagerow",colorattribute="SEA_Kmeans_cluster_str",save_file = result_file + "/SEA_Cluster_Spatial.pdf",is_show=False,is_save= True)
-        k_means_score_ari = adjusted_rand_score(adata.obs["SEA_Kmeans_cluster_str"].values, adata.obs[args.cluster_label].values)
-        k_means_score_silhouette = silhouette_score(adata.obsm["SEA_embedding"], adata.obs["SEA_Kmeans_cluster_str"].values, metric="sqeuclidean")
-        k_means_score_nmi = normalized_mutual_info_score(adata.obs["SEA_Kmeans_cluster_str"].values, adata.obs[args.cluster_label].values)
-        k_means_score_fmi = fowlkes_mallows_score(adata.obs["SEA_Kmeans_cluster_str"].values, adata.obs[args.cluster_label].values)
-        k_means_score_DB = davies_bouldin_score(adata.obsm["SEA_embedding"], adata.obs["SEA_Kmeans_cluster_str"].values)
-        k_means_score_chs = calinski_harabasz_score(adata.obsm["SEA_embedding"], adata.obs["SEA_Kmeans_cluster_str"].values)
+        drawPicture(adata.obs,col_name ="imagecol",row_name = "imagerow",colorattribute="GSG_Kmeans_cluster_str",save_file = result_file + "/GSG_Cluster_Spatial.pdf",is_show=False,is_save= True)
+        k_means_score_ari = adjusted_rand_score(adata.obs["GSG_Kmeans_cluster_str"].values, adata.obs[args.cluster_label].values)
+        k_means_score_silhouette = silhouette_score(adata.obsm["GSG_embedding"], adata.obs["GSG_Kmeans_cluster_str"].values, metric="sqeuclidean")
+        k_means_score_nmi = normalized_mutual_info_score(adata.obs["GSG_Kmeans_cluster_str"].values, adata.obs[args.cluster_label].values)
+        k_means_score_fmi = fowlkes_mallows_score(adata.obs["GSG_Kmeans_cluster_str"].values, adata.obs[args.cluster_label].values)
+        k_means_score_DB = davies_bouldin_score(adata.obsm["GSG_embedding"], adata.obs["GSG_Kmeans_cluster_str"].values)
+        k_means_score_chs = calinski_harabasz_score(adata.obsm["GSG_embedding"], adata.obs["GSG_Kmeans_cluster_str"].values)
         print("k_means_score_ari:" + str(k_means_score_ari))
         print("k_means_score_silhouette:" + str(k_means_score_silhouette))
         print("k_means_score_nmi:" + str(k_means_score_nmi))
@@ -93,10 +93,10 @@ def GSG_Spatial_Pic(adata,args,result_file):
         print("k_means_score_DB:" + str(k_means_score_DB))
         print("k_means_score_chs:" + str(k_means_score_chs))
     else:
-        drawPicture(adata.obs,col_name ="imagecol",row_name = "imagerow",colorattribute="SEA_Kmeans_cluster_str",save_file = result_file + "/SEA_Cluster_Spatial.pdf",is_show=False,is_save= True)
-        k_means_score_silhouette = silhouette_score(adata.obsm["SEA_embedding"], adata.obs["SEA_Kmeans_cluster_str"].values, metric="sqeuclidean")
-        k_means_score_DB = davies_bouldin_score(adata.obsm["SEA_embedding"], adata.obs["SEA_Kmeans_cluster_str"].values)
-        k_means_score_chs = calinski_harabasz_score(adata.obsm["SEA_embedding"], adata.obs["SEA_Kmeans_cluster_str"].values)
+        drawPicture(adata.obs,col_name ="imagecol",row_name = "imagerow",colorattribute="GSG_Kmeans_cluster_str",save_file = result_file + "/GSG_Cluster_Spatial.pdf",is_show=False,is_save= True)
+        k_means_score_silhouette = silhouette_score(adata.obsm["GSG_embedding"], adata.obs["GSG_Kmeans_cluster_str"].values, metric="sqeuclidean")
+        k_means_score_DB = davies_bouldin_score(adata.obsm["GSG_embedding"], adata.obs["GSG_Kmeans_cluster_str"].values)
+        k_means_score_chs = calinski_harabasz_score(adata.obsm["GSG_embedding"], adata.obs["GSG_Kmeans_cluster_str"].values)
         print("k_means_score_silhouette:" + str(k_means_score_silhouette))
         print("k_means_score_DB:" + str(k_means_score_DB))
         print("k_means_score_chs:" + str(k_means_score_chs))
@@ -197,11 +197,11 @@ def GSG_train(adata,graph,args):
     model.train(False)
     x = graph.ndata["feat"]
     embedding = model.embed(graph.to(device), x.to(device))
-    adata.obsm["SEA_embedding"] = embedding.cpu().detach().numpy()
+    adata.obsm["GSG_embedding"] = embedding.cpu().detach().numpy()
     if args.feature_dim_method == "HVG":
         latten_embedding = model.encoder_to_decoder(embedding)
         imputation_embedding =  model.decoder(graph.to(device),latten_embedding)
-        adata.obsm["SEA_imputation_embedding"] = imputation_embedding.cpu().detach().numpy()
+        adata.obsm["GSG_imputation_embedding"] = imputation_embedding.cpu().detach().numpy()
     return adata,model
 
 def GSG_plot_imputation_gene(adata,args,result_file):
@@ -210,9 +210,9 @@ def GSG_plot_imputation_gene(adata,args,result_file):
     sc.pp.filter_cells(adata, min_genes=200)
     sc.pp.filter_genes(adata, min_cells=3)
     sc.pp.pca(adata, n_comps=600)
-    adata.obs["SEA_kmeans_cluster_str"] =  adata.obs["SEA_Kmeans_cluster_str"].astype("category")
+    adata.obs["GSG_kmeans_cluster_str"] =  adata.obs["GSG_Kmeans_cluster_str"].astype("category")
     adata.var_names = adata.var.index
-    sc.tl.rank_genes_groups(adata, "SEA_kmeans_cluster_str" , use_raw=False,n_genes = 300,method="wilcoxon")
+    sc.tl.rank_genes_groups(adata, "GSG_kmeans_cluster_str" , use_raw=False,n_genes = 300,method="wilcoxon")
     sc.tl.filter_rank_genes_groups(adata)
     celltype_list = adata.uns["rank_genes_groups_filtered"]["names"].dtype.names
     for celltype in celltype_list:
@@ -223,7 +223,7 @@ def GSG_plot_imputation_gene(adata,args,result_file):
             if(len(gene_list) >= 3):
                 break
         if(len(gene_list) != 0 ):
-            sc.pl.violin(adata, gene_list, groupby='SEA_kmeans_cluster_str',show=False)
+            sc.pl.violin(adata, gene_list, groupby='GSG_kmeans_cluster_str',show=False)
             plt.savefig(diff_gene_floder + celltype+ "_gene_violin.pdf")
     adata.var['features'] = adata.var.index
     result_csv = pd.DataFrame()
@@ -255,7 +255,7 @@ def GSG_plot_imputation_gene(adata,args,result_file):
                 print(celltype)
                 celltype = celltype.replace("/","_")
                 before_gene_csv = pd.DataFrame(index =adata.obs.index,columns= adata.var.index,data =adata.X.todense())
-                after_gene_csv = pd.DataFrame(index =adata_Vars.obs.index,columns= adata_Vars.var.index,data =adata.obsm["SEA_imputation_embedding"] )
+                after_gene_csv = pd.DataFrame(index =adata_Vars.obs.index,columns= adata_Vars.var.index,data =adata.obsm["GSG_imputation_embedding"] )
                 before_gene_csv_merge = pd.merge(before_gene_csv,cell_csv,left_index=True,right_index=True)
                 after_gene_csv_merge = pd.merge(after_gene_csv,cell_csv,left_index=True,right_index=True)
                 width = 2000
