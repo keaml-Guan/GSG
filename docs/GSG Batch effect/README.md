@@ -1,6 +1,7 @@
 --
 sort: 1
 ---
+
 {% include list.liquid %}
 # Graph construction
 ## GSG.read_10X_Visium_with_label
