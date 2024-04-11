@@ -12,7 +12,7 @@ This documentation is organized as followed:
 
 - [Domain identification](https://keaml-guan.github.io/GSG/GSG%20Domain%20Identify/)
 - [Trajectory inference](https://keaml-guan.github.io/GSG/GSG%20Domain%20Identify/)
-- [Gene reconstruct](https://keaml-guan.github.io/GSG/GSG%20Domain%20Identify/)
+- [Gene reconstruct](https://keaml-guan.github.io/GSG/GSG%20Gene%20Reconstruct/)
 - [Batch effect](https://keaml-guan.github.io/GSG/GSG%20Batch%20effect/)
 
 <img src="./pics/GSG.jpg">
