@@ -12,3 +12,4 @@ This documentation is organized as followed:
 
 - [Domain identification](https://keaml-guan.github.io/GSG/GSG%20Domain%20Identify/)
 
+<img src="./pics/GSG.jpg">
