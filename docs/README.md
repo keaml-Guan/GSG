@@ -15,4 +15,8 @@ This documentation is organized as followed:
 - [Gene reconstruct](https://keaml-guan.github.io/GSG/GSG%20Gene%20Reconstruct/)
 - [Batch effect](https://keaml-guan.github.io/GSG/GSG%20Batch%20effect/)
 
+
+
+
+
 <img src="./pics/GSG.jpg">
