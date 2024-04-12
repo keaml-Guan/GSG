@@ -2,6 +2,6 @@
 sort: 1
 ---
 
-# GSG Domain Identification
+# GSG  Trajectory Inference
 
 {% include list.liquid %}
