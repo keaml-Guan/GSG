@@ -10,10 +10,10 @@ Recent advances in spatial transcriptomics (ST) have opened new avenues for pres
 
 ## Requirements
 You'll need to install the following packages in order to run the codes.
-* python==3.7.12
+* python==3.8
 * torch==1.8.0
 * cudnn==8.4
-* numpy==1.21.6
+* numpy==1.22.0
 * scanpy==1.8.2
 * anndata==0.8.0
 * dgl==0.9.0
@@ -23,25 +23,30 @@ You'll need to install the following packages in order to run the codes.
 * tqdm==4.64.1
 * matplotlib==3.5.3
 * tensorboardX==2.5.1
+* pyyaml==6.0.1
+* ploty==5.21.0
+* kaleido==0.2.1
+* igraph==0.11.4
 
 ## Installation
 
 See our model document details from [Docs](https://keaml-guan.github.io/GSG/).
 
-### From source
-Start by grabbing this source codes:
-```sh
-git clone https://github.com/keaml-Guan/GSG.git
-cd GSG
-```
+
 ### Use python virutal environment with conda
 ```sh
-conda creat -n gsg python=3.7
+conda creat -n gsg python=3.8
 conda activate gsg
-pip install -r requirements.txt
+# Need install cudnn based on your CUDA version.Refer to [www.](https://developer.nvidia.com/cudnn-archive)
+# conda install cudnn[version]
+```
+### Install GSG
+Install GSG from PyPi:
+```sh
+pip install GSG==0.5
 ```
 ## Quick Start
-Before using, you need to unzip the data:
+Before using, you need to download and unzip the data:
 ```sh
 cd ./data/10X
 cat 151673.zip* > 151673.zip
