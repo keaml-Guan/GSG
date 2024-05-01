@@ -66,6 +66,6 @@ python GSG_cluster.py --device 0 --cluster_label layer_guess_reordered_short --f
 ![](https://github.com/keaml-Guan/GSG/blob/main/figures/Result.jpg)
 
 ## Citation
-```sh
+<mark>
 Guan, R., Sun, H., Zhang, T., Wu, Z., Du, M., Liang, Y., ... & Xu, D. (2024). Generative Self-Supervised Graphs Enhance Integration, Imputation and Domains Identification of Spatial Transcriptomics.
-```
+</mark>
