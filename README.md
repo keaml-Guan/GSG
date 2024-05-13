@@ -43,7 +43,7 @@ conda activate gsg
 ### Install GSG
 Install GSG from PyPi:
 ```sh
-pip install GSG==0.5
+pip install GSG==0.5.6
 ```
 ## Quick Start
 Before using, you need to download and unzip the data:
