@@ -2,6 +2,6 @@
 sort: 5
 ---
 
-# GSG batch effect
+# Tutorial
 
 {% include list.liquid %}
