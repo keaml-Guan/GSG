@@ -24,7 +24,7 @@ You'll need to install the following packages in order to run the codes.
 * matplotlib==3.5.3
 * tensorboardX==2.5.1
 * pyyaml==6.0.1
-* ploty==5.21.0
+* plotly==5.21.0
 * kaleido==0.2.1
 * igraph==0.11.4
 
@@ -43,7 +43,7 @@ conda activate gsg
 ### Install GSG
 Install GSG from PyPi:
 ```sh
-pip install GSG==0.5.6
+pip install GSG==0.5.7
 ```
 ## Quick Start
 Before using, you need to download and unzip the data:
