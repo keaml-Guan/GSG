@@ -26,7 +26,7 @@ You'll need to install the following packages in order to run the codes.
 * pyyaml==6.0.1
 * plotly==5.21.0
 * kaleido==0.2.1
-* igraph==0.11.4
+* igraph==0.9.8
 
 ## Installation
 
@@ -43,7 +43,8 @@ conda activate gsg
 ### Install GSG
 Install GSG from PyPi:
 ```sh
-pip install GSG==0.5.7
+pip install GSG==0.5.8
+pip install dgl-cu110 -f https://data.dgl.ai/wheels/repo.html
 ```
 ## Quick Start
 Before using, you need to download and unzip the data:
