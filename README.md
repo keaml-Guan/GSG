@@ -41,7 +41,7 @@ conda activate gsg
 # conda install cudnn[version]
 ```
 ### Install GSG
-Install GSG from PyPi:
+Install GSG and dgl(for gpu) from PyPi:
 ```sh
 pip install GSG==0.5.8
 pip install dgl-cu110 -f https://data.dgl.ai/wheels/repo.html
