@@ -11,7 +11,7 @@ Recent advances in spatial transcriptomics (ST) have opened new avenues for pres
 ## Requirements
 You'll need to install the following packages in order to run the codes.
 * python==3.8
-* torch==1.8.0
+* torch==1.9.0
 * cudnn==8.4
 * numpy==1.22.0
 * scanpy==1.8.2
