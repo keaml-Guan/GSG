@@ -61,11 +61,12 @@ python GSG_cluster.py --device 0 --cluster_label layer_guess_reordered_short --f
 # feature_dim_method default is "PCA", and another is "HVG"
 ```
 
-## Issues on experiment
-We found that SpaceFlow has different versions on GitHub and PyPi. The version installed in the recommended way is backward. In addition, the new version on GitHub has corrections to the old version, while the code on PyPi has fatal problems, which leads to serious problems in spatial domain division.
 
 
 ![](https://github.com/keaml-Guan/GSG/blob/main/figures/Result.jpg)
+
+## Issues on experiment
+We found that SpaceFlow has different versions on GitHub and PyPi. The version installed in the recommended way is backward. In addition, the new version on GitHub has corrections to the old version, while the code on PyPi has fatal problems, which leads to serious problems in spatial domain division.
 
 ## Citation
 <mark>
