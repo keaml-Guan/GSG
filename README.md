@@ -31,8 +31,8 @@ You'll need to install the following packages in order to run the codes.
 ## Installation
 
 See our model document details from [Docs](https://keaml-guan.github.io/GSG/).
-
-!!! The recommended operating system is Ubuntu 18.04 LTS.
+> [!NOTE]
+> **!!! The recommended operating system is Ubuntu 18.04 LTS.**
 ### Use python virutal environment with conda
 ```sh
 conda creat -n gsg python=3.8
