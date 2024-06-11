@@ -38,7 +38,7 @@ See our model document details from [Docs](https://keaml-guan.github.io/GSG/).
 conda creat -n gsg python=3.8
 conda activate gsg
 # Need install cudnn based on your CUDA version.Refer to https://developer.nvidia.com/cudnn-archive
-# conda install cudnn[version]
+# conda install cudnn[=version]
 ```
 ### Install GSG
 Install GSG and dgl(for gpu) from PyPi:
