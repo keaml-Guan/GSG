@@ -2,6 +2,6 @@
 sort: 1
 ---
 
-# GSG Domain Cluster
+# GSG Domain Identification
 
 {% include list.liquid %}
