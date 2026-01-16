@@ -3,34 +3,13 @@
 #
 ![](https://github.com/keaml-Guan/GSG/blob/main/figures/GSG_overview.jpg)
 <br>
-## Overview
+## ✨ Overview
 
 Recent advances in spatial transcriptomics (ST) have opened new avenues for preserving spatial information while measuring gene expression. Yet, the challenge of seamlessly integrating this data into accurate and transferable representation remains. Here, we introduce a generative self-supervised graph (GSG) learning framework to achieve an effective joint embedding of location and gene expression within ST data. Our approach surpasses existing methods in identifying spatial domains within the human dorsolateral prefrontal cortex. Moreover, it can offer reliable analyses across various techniques, including Stereo-seq, Slide-seq, and seqFISH, irrespective of spatial resolution. Furthermore, GSG addresses dropout defects, enhancing gene expression by smoothing spatial patterns, extracting critical features, reducing batch effects, and enabling the integration of disparate datasets. Additionally, we performed spatial transcriptomic analysis on fetal human hearts, and applied GSG to extract biological insights. These experiments highlight GSG's accuracy in identifying spatial domains, uncovering specific APCDD1 expression in fetal endocardium, and implicating its role in congenital heart disease. Our results showcase GSG's superiority and underscore its valuable contributions to advancing spatial-omics analysis.
 
 
-## Requirements
-You'll need to install the following packages in order to run the codes.
-* python==3.8
-* torch==1.9.0
-* cudnn==8.4
-* numpy==1.22.0
-* scanpy==1.8.2
-* anndata==0.8.0
-* dgl==0.9.0
-* pandas==1.2.4
-* scipy==1.7.3
-* scikit-learn==1.0.1 
-* tqdm==4.64.1
-* matplotlib==3.5.3
-* tensorboardX==2.5.1
-* pyyaml==6.0.1
-* plotly==5.21.0
-* kaleido==0.2.1
-* igraph==0.9.8
+## 🛠️ Installation
 
-## Installation
-
-See our model document details from [Docs](https://keaml-guan.github.io/GSG/).
 > [!NOTE]
 > **!!! The recommended operating system is Ubuntu 18.04 LTS.** Some packages may not download correctly on Windows.
 ### Use python virutal environment with conda
@@ -46,7 +25,19 @@ Install GSG and dgl(for gpu) from PyPi:
 pip install GSG==0.5.8
 pip install dgl-cu110 -f https://data.dgl.ai/wheels/repo.html
 ```
-## Quick Start
+Required packages include:
+```sh
+torch==1.9.0, cudnn==8.4, numpy==1.22.0, scanpy==1.8.2, anndata==0.8.0, dgl==0.9.0,
+pandas==1.2.4, scipy==1.7.3, scikit-learn==1.0.1, tqdm==4.64.1, matplotlib==3.5.3,
+tensorboardX==2.5.1, pyyaml==6.0.1, plotly==5.21.0, kaleido==0.2.1, igraph==0.9.8
+```
+
+
+## 🚀 Quick Start
+See our model document details from [Docs](https://keaml-guan.github.io/GSG/).
+
+We provide the scripts for reproducing the quantitative and visualization results of the paper in [/docs/Reproducibility/](https://github.com/keaml-Guan/GSG/tree/main/docs/Reproducibility(Updating)/).
+ 
 Before using, you need to download and unzip the data:
 ```sh
 cd ./data/10X
@@ -65,10 +56,11 @@ python GSG_cluster.py --device 0 --cluster_label layer_guess_reordered_short --f
 
 ![](https://github.com/keaml-Guan/GSG/blob/main/figures/Result.jpg)
 
-## Issues on experiment
-We found that SpaceFlow has different versions on GitHub and PyPi. The version installed in the recommended way is backward. In addition, the new version on GitHub has corrections to the old version, while the code on PyPi has fatal problems, which leads to serious problems in spatial domain identification.
+<!-- ## Issues on experiment
+We found that SpaceFlow has different versions on GitHub and PyPi. The version installed in the recommended way is backward. In addition, the new version on GitHub has corrections to the old version, while the code on PyPi has fatal problems, which leads to serious problems in spatial domain identification. -->
 
-## Citation
-<mark>
-Guan, R., Sun, H., Zhang, T., Wu, Z., Du, M., Liang, Y., ... & Xu, D. (2024). Generative Self-Supervised Graphs Enhance Integration, Imputation and Domains Identification of Spatial Transcriptomics.
-</mark>
+## 📚 Citation
+Wang, C., Zhang, T., Sun, H., ... , Xu, D., Feng, X., Zeng, A., Guan, R. (2026). A masked generative graph representation learning framework empowering precise spatial domain identification.
+
+## 📩 Contact
+If you have any questions, feel free to contact [chuyao25@mails.jlu.edu.cn](mailto:chuyao25@mails.jlu.edu.cn).
