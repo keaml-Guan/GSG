@@ -73,7 +73,6 @@ def build_args():
     return args
 
 def main(args):
-    # 新建文件夹
     adata = sq.datasets.seqfish()
     adata.obs['imagecol'] = adata.obsm['spatial'][:, 0]
     adata.obs['imagerow'] = adata.obsm['spatial'][:, 1]
