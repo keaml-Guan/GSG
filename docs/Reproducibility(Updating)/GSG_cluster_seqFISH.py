@@ -40,12 +40,10 @@ def build_args():
     parser.add_argument("--scheduler", action="store_true", default=True)
     parser.add_argument("--concat_hidden", action="store_true", default=False)
 
-    # for graph classification
     parser.add_argument("--pooling", type=str, default="mean")
     parser.add_argument("--deg4feat", action="store_true", default=False, help="use node degree as input feature")
     parser.add_argument("--batch_size", type=int, default=32)
 
-    #参数调整
     parser.add_argument("--mask_rate", type=float, default=0.9)
     parser.add_argument("--encoder", type=str, default="gin")
     parser.add_argument("--decoder", type=str, default="gin")
@@ -63,7 +61,6 @@ def build_args():
     parser.add_argument("--replace_rate", type=float, default=0.05)
     parser.add_argument("--norm", type=str, default="batchnorm")
 
-    # GSG专属参数
     parser.add_argument("--feature_dim_method", type=str, default="PCA")
     parser.add_argument("--num_features", type=int, default=300)
     parser.add_argument("--threshold_radius", type=int, default=0.04)
@@ -72,7 +69,6 @@ def build_args():
     parser.add_argument("--cluster_label", type=str, default= "celltype_mapped_refined")
     parser.add_argument("--num_classes", type=int, default=7, help = "The number of clusters")
 
-    # 读取参数
     args = parser.parse_args()
     return args
 
@@ -86,13 +82,10 @@ def main(args):
     adata, graph = GSG.Graph_10X(adata, args)
     adata, model = GSG.GSG_train(adata, graph, args)
 
-    # Kmeans聚类 聚类结果保存在adata.obs["GSG_Kmeans_cluster"]（数字）中
     adata.obs["GSG_Kmeans_cluster"] = GSG.KMeans_use(adata.obsm["GSG_embedding"], num_classes)
     adata.obs["GSG_Kmeans_cluster_str"] = adata.obs["GSG_Kmeans_cluster"].astype(str)
     ari = adjusted_rand_score(adata.obs[args.cluster_label].values, adata.obs['GSG_Kmeans_cluster_str'])
     print(ari)
-    
-    adata.write("/home/sunhang/GSG_test/output/seqfish.h5ad")
 
 if __name__ == "__main__":
     args = build_args()
