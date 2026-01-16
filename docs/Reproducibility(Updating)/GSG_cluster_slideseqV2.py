@@ -43,12 +43,10 @@ def build_args():
     parser.add_argument("--scheduler", action="store_true", default=True)
     parser.add_argument("--concat_hidden", action="store_true", default=False)
 
-    # for graph classification
     parser.add_argument("--pooling", type=str, default="mean")
     parser.add_argument("--deg4feat", action="store_true", default=False, help="use node degree as input feature")
     parser.add_argument("--batch_size", type=int, default=32)
 
-    #参数调整
     parser.add_argument("--mask_rate", type=float, default=0.3)
     parser.add_argument("--encoder", type=str, default="gin")
     parser.add_argument("--decoder", type=str, default="gin")
@@ -66,7 +64,6 @@ def build_args():
     parser.add_argument("--replace_rate", type=float, default=0.05)
     parser.add_argument("--norm", type=str, default="batchnorm")
 
-    # GSG专属参数
     parser.add_argument("--feature_dim_method", type=str, default="PCA")
     parser.add_argument("--num_features", type=int, default=600)
     parser.add_argument("--threshold_radius", type=int, default=22)
@@ -75,7 +72,6 @@ def build_args():
     parser.add_argument("--cluster_label", type=str, default= "cluster")
     parser.add_argument("--num_classes", type=int, default=7, help = "The number of clusters")
 
-    # 读取参数
     args = parser.parse_args()
     return args
 
