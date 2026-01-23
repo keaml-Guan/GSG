@@ -1,4 +1,4 @@
-# Generative Self-Supervised Graphs Enhance Spatial Transcriptomics Integration, Imputation and Domain Identification
+# A masked generative graph representation learning framework empowering precise spatial domain identification
 ![GitHub Repo stars](https://img.shields.io/github/stars/keaml-Guan/GSG) &nbsp;&nbsp; ![GitHub watchers](https://img.shields.io/github/watchers/keaml-Guan/GSG) &nbsp;&nbsp; ![GitHub](https://img.shields.io/github/license/keaml-Guan/GSG)
 #
 ![](https://github.com/keaml-Guan/GSG/blob/main/figures/Fig1_11_reduce.jpg)
