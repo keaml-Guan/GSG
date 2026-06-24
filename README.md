@@ -14,53 +14,35 @@ Recent advances in spatial transcriptomics (ST) have opened new avenues for pres
 > **!!! The recommended operating system is Ubuntu 18.04 LTS.** Some packages may not download correctly on Windows.
 ### Use python virutal environment with conda
 ```sh
-conda creat -n gsg python=3.8
+conda create -n gsg python=3.7 -y
 conda activate gsg
 # Need install cudnn based on your CUDA version.Refer to https://developer.nvidia.com/cudnn-archive
 # conda install cudnn[=version]
 ```
 ### Install GSG
-Install GSG and dgl(for gpu) from PyPi:
 ```sh
-pip install GSG==0.5.8
-pip install dgl-cu110 -f https://data.dgl.ai/wheels/repo.html
-```
-Required packages include:
-```sh
-torch==1.9.0, cudnn==8.4, numpy==1.22.0, scanpy==1.8.2, anndata==0.8.0, dgl==0.9.0,
-pandas==1.2.4, scipy==1.7.3, scikit-learn==1.0.1, tqdm==4.64.1, matplotlib==3.5.3,
-tensorboardX==2.5.1, pyyaml==6.0.1, plotly==5.21.0, kaleido==0.2.1, igraph==0.9.8
+pip install GSG
 ```
 
 
 ## 🚀 Quick Start
 See our model document details from [Docs](https://keaml-guan.github.io/GSG/).
 
-We provide the scripts for reproducing the quantitative and visualization results of the paper in [/docs/Reproducibility/](https://github.com/keaml-Guan/GSG/tree/main/docs/Reproducibility(Updating)/).
+We provide the jupyter notebook for reproducing the quantitative and visualization results of the paper in [/docs/tutorials/](https://github.com/keaml-Guan/GSG/tree/main/docs/tutorials/).
  
-Before using, you need to download and unzip the data:
-```sh
-cd ./data/10X
-cat 151673.zip* > 151673.zip
-unzip -d ./ 151673.zip
-cd ../..
-```
-And then, you can start using code following:
+The core workflow of GSG can be summarized in three main steps. You can get started with the following code:
     
 ```sh
-python GSG_cluster.py --device 0 --cluster_label layer_guess_reordered_short --feature_dim_method "PCA"
-# feature_dim_method default is "PCA", and another is "HVG"
+adata = GSG.pp.read_10X_Visium_with_label(args.folder_name + args.sample_name)     # Read in data
+adata, graph = GSG.pp.Graph_10X(adata, args)                                       # preprocess
+adata, model = GSG.train.GSG_train(adata, graph, args)                             # graph representation learning
 ```
-
-
-
-![](https://github.com/keaml-Guan/GSG/blob/main/figures/Result.jpg)
 
 <!-- ## Issues on experiment
 We found that SpaceFlow has different versions on GitHub and PyPi. The version installed in the recommended way is backward. In addition, the new version on GitHub has corrections to the old version, while the code on PyPi has fatal problems, which leads to serious problems in spatial domain identification. -->
 
 ## 📚 Citation
-Wang, C., Zhang, T., Sun, H., ... , Xu, D., Feng, X., Zeng, A., Guan, R. (2026). A masked generative graph representation learning framework empowering precise spatial domain identification.
+Wang C, Zhang T, Sun H, et al. A masked generative graph representation learning framework empowering precise spatial domain identification[J]. *Bioinformatics*, 2026, 42(6). [https://doi.org/10.1093/bioinformatics/btag333.](https://doi.org/10.1093/bioinformatics/btag333)
 
 ## 📩 Contact
 If you have any questions, feel free to contact [chuyao25@mails.jlu.edu.cn](mailto:chuyao25@mails.jlu.edu.cn).
